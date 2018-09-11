@@ -47113,7 +47113,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -47128,7 +47127,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     }),
     data: function data() {
         return {
-            id: 101,
             points: {}
         };
     },
@@ -47152,22 +47150,8 @@ var render = function() {
     _c("h2", [_vm._v("検索")]),
     _vm._v(" "),
     _c("div", [
-      _c("input", {
-        directives: [
-          { name: "model", rawName: "v-model", value: _vm.id, expression: "id" }
-        ],
-        attrs: { type: "text", name: "title", placeholder: "1" },
-        domProps: { value: _vm.id },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
-            }
-            _vm.id = $event.target.value
-          }
-        }
-      }),
-      _vm._v("\n    " + _vm._s(_vm.id) + "\n    "),
+      _c("input", { attrs: { type: "text", name: "id", placeholder: "1" } }),
+      _vm._v(" "),
       _c("button", { on: { click: _vm.searchData } }, [_vm._v("検索")])
     ]),
     _vm._v(" "),
