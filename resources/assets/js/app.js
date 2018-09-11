@@ -1,4 +1,7 @@
-
+import Vue from 'vue'
+import VueRouter from 'vue-router'
+import Vuex from 'vuex'
+import store from './stores'
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -16,7 +19,22 @@ window.Vue = require('vue');
  */
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
+Vue.use(VueRouter);
+
+const router = new VueRouter({
+    mode: 'history',
+    routes: [
+        // TOPページ
+        {path: '/', component: require('./components/Home/Index.vue')},
+        {path: '/editor', component: require('./components/Editor/Index.vue')},
+        {path: '/editor/:id', component: require('./components/Editor/Search.vue')},
+        {path: '/editor/:id/edit', component: require('./components/Editor/Edit.vue')},
+    ]
+});
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    router,
+    store
 });
+

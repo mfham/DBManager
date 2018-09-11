@@ -11,6 +11,17 @@
 |
 */
 
-Route::get('/', function () {
-    return view('manager.index');
+#Route::get('/', function () {
+#    return view('manager.index');
+#});
+
+
+Route::get('/sample/{id}', function ($id) {
+    return 1;
 });
+Route::get('/sample', function() {
+    return 1;
+});
+Route::get('/{any}', function () {
+    return view('manager.index');
+})->where('any', '.*');
