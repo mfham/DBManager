@@ -1,6 +1,6 @@
 export default {
     get(id) {
-        return axios.post(`/api/sample/${id}`);
+        return axios.get(`/api/sample/${id}`);
     }
 };
 

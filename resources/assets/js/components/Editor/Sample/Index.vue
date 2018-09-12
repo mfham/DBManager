@@ -1,11 +1,7 @@
 <template>
 <div>
   <h2>検索</h2>
-  <div>
-    <input v-model="id" type="text" name="title" placeholder="1">
-    {{ id }}
-    <button v-on:click="searchData">検索</button>
-  </div>
+  <Search/>
   <p>
     {{ points }}
   </p>
@@ -13,7 +9,12 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex'
+import Vue from 'vue';
+import { mapState, mapActions } from 'vuex';
+import Search from './Search.vue';
+
+Vue.component('Search', Search);
+
 export default {
     created() {
         console.log('created search compornent.')
@@ -23,14 +24,10 @@ export default {
     }),
     data() {
         return {
-            id: 101,
             points: {}
         }
     },
     methods: {
-        searchData() {
-            this.$store.dispatch('sample/get', {id: this.id});
-        }
     }
 }
 </script>
