@@ -19,5 +19,5 @@ use Illuminate\Http\Request;
 
 
 Route::group(['middleware' => 'api'],function(){
-    Route::post('/sample/{id}', 'SampleController@get')->name('sample');
+    Route::get('/sample/{id}', 'SampleController@get')->name('sample');
 });
