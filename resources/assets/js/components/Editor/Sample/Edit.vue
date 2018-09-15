@@ -25,9 +25,7 @@ export default {
     },
     methods: {
         searchData() {
-            var id = 1
             axios.post('/api/sample/' + id).then(res => {
-                console.log(res.data.id)
             })
         }
     }

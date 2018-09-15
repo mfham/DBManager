@@ -22,9 +22,6 @@ Vue.use(VueRouter);
 
 import Home from './components/Home/Index.vue';
 import { SampleIndex, SampleSearch, SampleEdit } from './components/Editor/Sample';
-//import SampleIndex from './components/Editor/Sample/Index.vue';
-//import SampleSearch from './components/Editor/Sample/Search.vue';
-//import SampleEdit   from './components/Editor/Sample/Edit.vue';
 
 const router = new VueRouter({
     mode: 'history',
@@ -32,6 +29,13 @@ const router = new VueRouter({
         // TOPページ
         { path: '/', name: 'Root', component: Home },
         { path: '/editor',     name: 'SampleIndex', component: SampleIndex },
+        { path: '/editor/sample',
+          name: 'SampleIndex',
+          component: SampleIndex,
+          children: [
+              
+          ]
+        },
         { path: '/editor/:id', name: 'SampleSearch', component: SampleSearch },
         { path: '/editor/:id/edit', name: 'SampleEdit', component: SampleEdit },
     ]
