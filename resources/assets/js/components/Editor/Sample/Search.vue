@@ -6,8 +6,6 @@
 </template>
 
 <script>
-import sample from '../../../apis/sample.js';
-
 export default {
     created() {
         console.log('created search compornent.')

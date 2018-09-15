@@ -20,11 +20,10 @@ export default {
         console.log('created search compornent.')
     },
     computed: mapState({
-        ten: state => state.sample.points
+        points: state => state.sample.points
     }),
     data() {
         return {
-            points: {}
         }
     },
     methods: {
