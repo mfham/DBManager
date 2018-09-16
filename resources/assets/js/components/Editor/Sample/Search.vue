@@ -12,12 +12,13 @@ export default {
     },
     data() {
         return {
-            id: ''
+            id: 1
         }
     },
     methods: {
         searchData() {
             this.$store.dispatch('sample/get', {id: this.id});
+            this.$router.push({name: 'SampleShow', params: {id: this.id}});
         }
     }
 }
