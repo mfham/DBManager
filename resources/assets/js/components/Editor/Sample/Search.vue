@@ -6,20 +6,19 @@
 </template>
 
 <script>
-import sample from '../../../apis/sample.js';
-
 export default {
     created() {
         console.log('created search compornent.')
     },
     data() {
         return {
-            id: ''
+            id: 1
         }
     },
     methods: {
         searchData() {
             this.$store.dispatch('sample/get', {id: this.id});
+            this.$router.push({name: 'SampleShow', params: {id: this.id}});
         }
     }
 }

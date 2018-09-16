@@ -1,4 +1,4 @@
-import sample from '../../apis/sample'
+import sample from '../../apis/sample';
 
 const state = {
     points: {}
@@ -13,18 +13,15 @@ const getters = {
 
 const actions = {
     get({commit}, data) {
-        sample.get(data.id).then(res => {
-            console.log(res.data);
-            console.log('aa');
-            
-            commit('setPoints', res.data);
+        sample.get(data.id).then(response => {
+            commit('setPoints', response.data);
         });
     }
 };
 
 const mutations = {
-    setPoints(state, {points}) {
-        state.points = points;
+    setPoints(state, payload) {
+        state.points = payload;
     }
 };
 
