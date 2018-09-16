@@ -9,16 +9,29 @@ import { SampleIndex, SampleShow, SampleEdit } from './components/Editor/Sample'
 
 const routes = [
     { path: '/', name: 'Root', component: Home },
-    { path: '/editor',     name: 'EditorIndex', component: EditorIndex },
-    { path: '/editor/sample',
-      name: 'SampleIndex',
-      component: SampleIndex,
+    { path: '/editor',
+      name: 'EditorIndex',
+      component: EditorIndex,
       children: [
-          
+          {
+              path: 'sample',
+              name: 'SampleIndex',
+              component: SampleIndex,
+              children: [
+                  { path: ':id',
+                    name: 'SampleShow',
+                    component: SampleShow,
+                    children: [
+                        { path: 'edit',
+                          name: 'SampleEdit',
+                          component: SampleEdit
+                        }
+                    ]
+                  }
+              ]
+          }
       ]
-    },
-    { path: '/editor/:id', name: 'SampleShow', component: SampleShow },
-    { path: '/editor/:id/edit', name: 'SampleEdit', component: SampleEdit }
+    }
 ];
 
 export default new VueRouter({

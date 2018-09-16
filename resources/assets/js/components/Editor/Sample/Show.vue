@@ -1,6 +1,5 @@
 <template>
 <div>
-  <Search/>
   <p>
     {{ points }}
   </p>
