@@ -6,11 +6,11 @@
 
 <script>
 import Vue from 'vue';
-import { mapState, mapActions } from 'vuex';
+import { mapState } from 'vuex';
 
 export default {
     created() {
-        console.log('created search compornent.')
+        console.log('created Show compornent.')
     },
     props: {
         id: {
@@ -19,12 +19,6 @@ export default {
     },
     computed: mapState('sample', [
         'points_old'
-    ]),
-    data() {
-        return {
-        }
-    },
-    methods: {
-    }
+    ])
 }
 </script>
