@@ -5,7 +5,7 @@ Vue.use(VueRouter);
 
 import Home from './components/Home/Index.vue';
 import EditorIndex from './components/Editor/Index.vue';
-import { SampleIndex, SampleShow, SampleEdit } from './components/Editor/Sample';
+import { SampleIndex, SampleShow, SampleDetail, SampleEdit, SampleConfirm, SampleComplete } from './components/Editor/Sample';
 
 const routes = [
     { path: '/', name: 'Root', component: Home },
@@ -18,14 +18,33 @@ const routes = [
               name: 'SampleIndex',
               component: SampleIndex,
               children: [
-                  { path: ':id',
-                    name: 'SampleShow',
-                    component: SampleShow,
-                    children: [
-                        { path: 'edit',
-                          name: 'SampleEdit',
-                          component: SampleEdit
-                        }
+                  {
+                      path: ':id',
+                      component: SampleShow,
+                      props: route => ({
+                          id: Number(route.params.id)
+                      }),
+                      children: [
+                          {
+                              path: '',
+                              name: 'SampleDetail',
+                              component: SampleDetail
+                          },
+                          {
+                              path: 'edit',
+                              name: 'SampleEdit',
+                              component: SampleEdit
+                          },
+                          {
+                              path: 'confirm',
+                              name: 'SampleConfirm',
+                              component: SampleConfirm
+                          },
+                          {
+                              path: 'complete',
+                              name: 'SampleComplete',
+                              component: SampleComplete
+                          }
                     ]
                   }
               ]

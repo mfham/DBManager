@@ -1,6 +1,11 @@
 <template>
 <div>
-  <router-view v-bind:id="id"/>
+  <div>
+    complete
+  </div>
+  <div>
+    <router-link v-bind:to="{name: 'SampleIndex'}">Top</router-link>
+  </div>
 </div>
 </template>
 
@@ -10,15 +15,9 @@ import { mapState, mapActions } from 'vuex';
 
 export default {
     created() {
-        console.log('created search compornent.')
-    },
-    props: {
-        id: {
-            type: Number
-        }
+        console.log('created Edit compornent.')
     },
     computed: mapState('sample', [
-        'points_old'
     ]),
     data() {
         return {

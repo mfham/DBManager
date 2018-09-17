@@ -4,11 +4,11 @@
     <div class="item" v-for="col in columns">
       <div class="column name">{{ col }}</div>
       <div class="column beforeEditing">{{ points_old[col] }}</div>
-      <div class="column editing"><input type="text" v-bind:placeholder="points_new[col]"></div>
+      <div class="column editing">{{ points_new[col]}}</div>
     </div>
   </div>
   <div>
-    <router-link v-on:click.native="updateNewPoints()" v-bind:to="{name: 'SampleConfirm'}">Confirm</router-link>
+    <router-link v-on:click.native="saveNewPoints()" v-bind:to="{name: 'SampleComplete'}">Complete</router-link>
   </div>
 </div>
 </template>
@@ -16,9 +16,6 @@
 <script>
 import Vue from 'vue';
 import { mapState, mapActions } from 'vuex';
-import Search from './Search.vue';
-
-Vue.component('Search', Search);
 
 export default {
     created() {
@@ -39,8 +36,9 @@ export default {
         }
     },
     methods: {
-        updateNewPoints() {
-            this.$store.dispatch('sample/updateNewPoints', {id: this.id, name: 'foo'});
+        saveNewPoints() {
+            console.log(this.id);
+            this.$store.dispatch('sample/save', {id: this.id, columns: {name: 'foo'}})
         }
     }
 }
