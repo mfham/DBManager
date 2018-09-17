@@ -1,3 +1,4 @@
+import Vue from 'vue';
 import sample from '../../apis/sample';
 
 const state = {
@@ -37,7 +38,10 @@ const mutations = {
         state.points_old = payload;
     },
     setNewPoints(state, payload) {
-        state.points_new = payload;
+        for (const key in payload) {
+            Vue.set(state.points_new, key, payload[key]);
+        }
+        //state.points_new = payload;
     }
 
 };

@@ -8,7 +8,10 @@
     </div>
   </div>
   <div>
-    <router-link v-on:click.native="saveNewPoints()" v-bind:to="{name: 'SampleComplete'}">Complete</router-link>
+    <ul>
+      <li><router-link v-on:click.native="saveNewPoints()" v-bind:to="{name: 'SampleComplete'}">Complete</router-link></li>
+      <li><router-link v-bind:to="{name: 'SampleEdit'}">Back</router-link></li>
+    </ul>
   </div>
 </div>
 </template>
