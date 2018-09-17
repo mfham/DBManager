@@ -4,7 +4,7 @@
     <div class="item" v-for="col in columns">
       <div class="column name">{{ col }}</div>
       <div class="column beforeEditing">{{ points_old[col] }}</div>
-      <div class="column editing"><input type="text" v-bind:placeholder="points_new[col]"></div>
+      <div class="column editing"><input type="text" v-model="local_points_new[col]"  v-bind:placeholder="points_new[col]"></div>
     </div>
   </div>
   <div>
@@ -35,12 +35,15 @@ export default {
     ]),
     data() {
         return {
+            local_points_new: {
+                id: this.id
+            },
             columns: ['id', 'name', 'point']
         }
     },
     methods: {
         updateNewPoints() {
-            this.$store.dispatch('sample/updateNewPoints', {id: this.id, name: 'foo'});
+            this.$store.dispatch('sample/updateNewPoints', this.local_points_new);
         }
     }
 }

@@ -37,8 +37,7 @@ export default {
     },
     methods: {
         saveNewPoints() {
-            console.log(this.id);
-            this.$store.dispatch('sample/save', {id: this.id, columns: {name: 'foo'}})
+            this.$store.dispatch('sample/save', {id: this.id, columns: _.omit(this.points_new, ['id'])});
         }
     }
 }
