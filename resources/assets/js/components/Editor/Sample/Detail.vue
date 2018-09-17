@@ -4,11 +4,10 @@
     <div class="item" v-for="col in columns">
       <div class="column name">{{ col }}</div>
       <div class="column beforeEditing">{{ points_old[col] }}</div>
-      <div class="column editing"><input type="text" v-model="local_points_new[col]"  v-bind:placeholder="points_new[col]"></div>
     </div>
   </div>
   <div>
-    <router-link v-on:click.native="updateNewPoints()" v-bind:to="{name: 'SampleConfirm'}">Confirm</router-link>
+    <router-link v-bind:to="{name: 'SampleEdit'}">Edit</router-link>
   </div>
 </div>
 </template>
@@ -16,13 +15,10 @@
 <script>
 import Vue from 'vue';
 import { mapState, mapActions } from 'vuex';
-import Search from './Search.vue';
-
-Vue.component('Search', Search);
 
 export default {
     created() {
-        console.log('created Edit compornent.')
+        console.log('created search compornent.')
     },
     props: {
         id: {
@@ -30,21 +26,14 @@ export default {
         }
     },
     computed: mapState('sample', [
-        'points_old',
-        'points_new'
+        'points_old'
     ]),
     data() {
         return {
-            local_points_new: {
-                id: this.id
-            },
             columns: ['id', 'name', 'point']
         }
     },
     methods: {
-        updateNewPoints() {
-            this.$store.dispatch('sample/updateNewPoints', this.local_points_new);
-        }
     }
 }
 </script>
@@ -97,11 +86,8 @@ export default {
   .item .beforeEditing {
   margin-right: -1px;
   padding: .5em;
-  
   }
   .item .editing input {
   padding: .5em;
-  
   }
-  
 </style>

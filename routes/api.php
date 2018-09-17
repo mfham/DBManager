@@ -19,5 +19,6 @@ use Illuminate\Http\Request;
 
 
 Route::group(['middleware' => 'api'],function(){
-    Route::get('/sample/{id}', 'SampleController@get')->name('sample');
+    Route::get('/sample/{id}', 'SampleController@get')->name('sample.get');
+    Route::patch('/sample/{id}', 'SampleController@store')->name('sample.store');
 });

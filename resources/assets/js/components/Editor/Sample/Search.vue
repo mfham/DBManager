@@ -17,8 +17,8 @@ export default {
     },
     methods: {
         searchData() {
-            this.$store.dispatch('sample/get', {id: this.id});
-            this.$router.push({name: 'SampleShow', params: {id: this.id}});
+            this.$store.dispatch('sample/set', {id: this.id});
+            this.$router.push({name: 'SampleDetail', params: {id: this.id}});
         }
     }
 }
