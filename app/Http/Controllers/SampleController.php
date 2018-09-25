@@ -4,12 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Sample;
+use App\Http\Requests\SampleRequest;
 
 class SampleController extends Controller
 {
-    public function __construct(Request $request)
+    public function __construct()
     {
-        $this->request = $request;
     }
 
     public function get($id)
@@ -17,9 +17,9 @@ class SampleController extends Controller
         return Sample::where('id', $id)->get()->first()->toJson();
     }
 
-    public function store($id)
+    public function store(SampleRequest $request, $id)
     {
-        $params = $this->request->all();
+        $params = $request->all();
         \Debugbar::info($params);
         return Sample::where('id', $id)->update($params);
     }
