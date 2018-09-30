@@ -1,10 +1,13 @@
 <template>
 <div>
   <div class="content">
-    <div class="item" v-for="col in columns">
+    <div class="item" v-for="(setting, col) in columns">
       <div class="column name">{{ col }}</div>
       <div class="column beforeEditing">{{ points_old[col] }}</div>
-      <div class="column editing"><input type="text" v-model="local_points_new[col]"  v-bind:placeholder="points_new[col]"></div>
+      <div class="column editing">
+        <p>{{ errors.first(col) }}</p>
+        <input type="text" v-model="local_points_new[col]" v-bind:placeholder="points_new[col]" v-validate="setting.validation" v-bind:name="col">
+      </div>
     </div>
   </div>
   <div>
@@ -31,14 +34,14 @@ export default {
     },
     computed: mapState('sample', [
         'points_old',
-        'points_new'
+        'points_new',
+        'columns'
     ]),
     data() {
         return {
             local_points_new: {
                 id: this.id
-            },
-            columns: ['id', 'name', 'point']
+            }
         }
     },
     methods: {

@@ -3,7 +3,18 @@ import sample from '../../apis/sample';
 
 const state = {
     points_old: {},
-    points_new: {}
+    points_new: {},
+    columns: {
+        'id': {
+            'validation': 'integer|between:1,5'
+        },
+        'name': {
+            'validation': 'alpha'
+        },
+        'point': {
+            'validation': 'integer|between:1,3'
+        }
+    }
 };
 
 
